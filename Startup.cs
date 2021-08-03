@@ -37,6 +37,12 @@ namespace API_Net_Core
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI_NET", Version = "v1" });
             });
+
+            services.AddControllers()
+    .AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
